@@ -1,10 +1,10 @@
-import { serve } from "./deps.ts";
+import { serve } from './deps.ts';
 
-const PORT = 1993;
-const s = serve(`0.0.0.0:${PORT}`);
-const body = new TextEncoder().encode("Hello World\n");
+// function handler(req: Request): Response {
+//     return new Response("Hello, World!");
+// }
 
-console.log(`Server started on port ${PORT}`);
-for await (const req of s) {
-  req.respond({ body });
-}
+// serve(handler, { port: 8080 });
+
+console.log("http://localhost:8000/");
+serve((req) => new Response("Hello World\n"), { port: 8000 });
